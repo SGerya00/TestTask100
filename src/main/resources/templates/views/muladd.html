@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication and addition</title>
+</head>
+<body>
+<div>This is a multiplication and addition page</div>
+<div>(a * b + c)</div>
+<br/>
+
+<form th:method="POST" th:action="@{/calculator/muladd}" th:object="${args}">
+    <label for="argument1">Enter 1st argument (a): </label>
+    <input type="number" th:field="*{argument1}" id="argument1"/>
+    <br/>
+    <label for="argument2">Enter 2nd argument (b): </label>
+    <input type="number" th:field="*{argument2}" id="argument2"/>
+    <br/>
+    <label for="argument3">Enter 3d argument (c): </label>
+    <input type="number" th:field="*{argument3}" id="argument3"/>
+    <br/>
+    <input type="submit" value="Calculate!"/>
+</form>
+
+<p th:text="${'Result: ' + res.getResult()}">VALUE</p>
+
+<br/>
+<a href="/calculator">Go back to menu</a>
+
+</body>
+</html>

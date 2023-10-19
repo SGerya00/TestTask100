@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication</title>
+</head>
+<body>
+<div>This is a multiplication page</div>
+<div>(a1 * a2 * ...)</div>
+<br/>
+
+<form th:method="POST" th:action="@{/calculator/mul}" th:object="${args}">
+    <label for="argumentsStr"
+           th:text="${'Enter arguments, divided by &quot;'
+                    + args.getSplitRegex()
+                    + '&quot; regex (minimum of 2):'}">VALUE</label>
+    <input type="text" th:field="*{argumentsStr}" id="argumentsStr">
+    <br/>
+    <input type="submit" value="Calculate!"/>
+</form>
+
+<p th:text="${'Result: ' + res.getResult()}">VALUE</p>
+
+<br/>
+<a href="/calculator">Go back to menu</a>
+
+</body>
+</html>

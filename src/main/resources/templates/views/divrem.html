@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Remainder of division</title>
+</head>
+<body>
+<div>This is a remainder of division page</div>
+<br/>
+
+<form th:method="POST" th:action="@{/calculator/divrem}" th:object="${args}">
+    <label for="argument1">Enter dividend: </label>
+    <input type="number" th:field="*{argument1}" id="argument1"/>
+    <br/>
+    <label for="argument2">Enter divisor: </label>
+    <input type="number" th:field="*{argument2}" id="argument2"/>
+    <br/>
+    <input type="submit" value="Calculate!"/>
+</form>
+
+<p th:text="${'Result: ' + res.getResult()}">VALUE</p>
+
+<br/>
+<a href="/calculator">Go back to menu</a>
+</body>
+</html>
